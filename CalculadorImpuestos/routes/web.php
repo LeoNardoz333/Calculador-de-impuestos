@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#Home
+Route::get('/', function () { return view('sign-up'); })->name('home');
+
+#usuarios
+Route::get('/login-usuarios', function () { return view('login-usuarios'); })
+->name('V_login-usuarios');
+
+#admins
+Route::get('/login-admins', function() { return view('login-admins'); })
+->name('V_login-admins');

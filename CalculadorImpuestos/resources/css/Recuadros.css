@@ -1,0 +1,26 @@
+.recuadro-blanco{
+    background-color: #dcfff3 !important;
+    width: 40%;
+    min-height: 200px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.navbar-nav .nav-link {
+    transition: background-color 0.3s, color 0.3s;
+    /*padding: 5px 8px; /* Ajusta el espaciado si es necesario */
+    border-radius: 3px; /* Bordes redondeados opcionales */
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgb(211, 255, 224); /* Color al pasar el cursor */
+    color: rgb(12, 92, 48) !important; /* Cambia el color del texto si lo deseas */
+}
+
+@media (max-width: 480px) {
+    .recuadro-blanco {
+        width: 100%;
+        padding: 20px;
+    }
+}
