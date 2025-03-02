@@ -1,0 +1,27 @@
+.ojo{
+    outline: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none !important;
+    background: none !important;
+    display: inline;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.ojo:focus, .ojo:active, .ojo:focus-visible, .ojo:hover {
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    border: none !important;
+}
+
+.ojo img {
+    pointer-events: none;
+    user-select: none;
+}
