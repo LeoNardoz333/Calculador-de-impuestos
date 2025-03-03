@@ -2,3 +2,12 @@
 .Verde{
     background-color: #07c080;
 }
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(99%) sepia(4%) saturate(296%) hue-rotate(87deg) brightness(107%) contrast(96%);
+}

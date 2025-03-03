@@ -8,9 +8,9 @@
 }
 
 .regresar{
-    color: rgb(185, 5, 5);
+    color: rgb(185, 5, 5) !important;
 }
 
 .regresar:hover{
-    color: red;
+    color: red !important;
 }
