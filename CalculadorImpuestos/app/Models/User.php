@@ -3,7 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;use Jenssegers\Mongodb\Auth\User as Authenticatable;
-use Jenssegers\Mongodb\Auth\User as Authenticatable;
+//use Jenssegers\Mongodb\Auth\User as Authenticatable;
+use MongoDB\Laravel\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
