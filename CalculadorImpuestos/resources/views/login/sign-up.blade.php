@@ -60,7 +60,7 @@
                 </div>
                 @error('password') <p class="text text-danger">{{ $message }}</p>
                 @enderror
-                <div class="row mb-4">
+                <div class="row mb-2">
                     <div class="col-12">
                         <label class="login">Confirmar contraseña:</label>
                         <div class="position-relative">
@@ -69,15 +69,15 @@
                             <button class="btn ojo position-absolute end-0" type="button" id="confirmPassword">
                                 <img src="{{ asset('icons/showPass.png') }}" alt="ShowConfirmPassword" id="showConfirmPassword">
                             </button>
-                            @error('password_confirmation') <p class="text text-danger mt-2">{{ $message }}</p>
-                            @enderror
                         </div>
                     </div>
                 </div>
+                @error('password_confirmation') <p class="text text-danger">{{ $message }}</p>
+                @enderror
                 <input type="text" name="permisos" value="usuario" hidden>
                 <div class="row mt-4 d-flex justify-content-between align-items-center flex-column flex-md-row">
                     <div class="col-12 col-md-auto mb-2 mb-md-0 text-center">
-                        <a href=" {{ route('V_login-usuarios') }}  " class="regresar w-100 w-md-auto">Regresar</a>
+                        <a href=" {{ url()->previous() }}  " class="regresar w-100 w-md-auto">Regresar</a>
                     </div>
                     <div class="col-12 col-md-auto text-center">
                         <button type="submit" class="btn btn-success w-100 w-md-auto">Crear cuenta</button>

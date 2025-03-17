@@ -277,7 +277,7 @@ return [
 
     'attributes' => [
         'password_confirmation' => 'confirmación de contraseña',
-        'password' => 'contraseña',
+        'contrasena' => 'contraseña',
     ],
 
     'custom' => [
@@ -286,6 +286,9 @@ return [
         ],
         'apellido' => [
             'regex' => 'El campo :attribute solo puede contener letras y espacios.'
+        ],
+        'usuario' => [
+            'unique' => 'Este usuario ya ha sido registrado.'
         ],
     ],
 ];

@@ -23,11 +23,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre' => 'required|string|max:50|min:2|regex:/^[A-Za-z+ÁÉÍÓÚáéíóúÑñ\s]+$/u',
-            'apellido' => 'required|string|max:150|regex:/^[A-Za-z+ÁÉÍÓÚáéíóúÑñ\s]+$/u',
-            'usuario' => 'required|string|max:12',
+            'nombre' => 'required|string|max:30|min:2|regex:/^[A-Za-z+ÁÉÍÓÚáéíóúÑñ\s]+$/u',
+            'apellido' => 'required|string|max:30|min:2|regex:/^[A-Za-z+ÁÉÍÓÚáéíóúÑñ\s]+$/u',
+            'usuario' => 'required|string|max:12|min:3|unique:users,usuario',
             'password' => 'required|string|min:6|max:20|confirmed',
-            'password_confirmation' => 'required|string|min:6|max:20',
             'permisos' => 'required|string',
         ]);
 
