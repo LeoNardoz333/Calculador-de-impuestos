@@ -1,9 +1,9 @@
-Usuarios{
+users{
   "_id": { "$oid": "64b6f7b3e4b0a2f9c1234567" },
   "nombre": "Juan",
   "apellido": "Pérez",
   "usuario": "juanperez123",
   "contrasena": "$2b$10$abcdefg1234567890hashed", 
   "fecha_registro": { "$date": "2024-02-23T12:34:56Z" },
-  "permisos": "user"
+  "permisos": "usuario"
 }
