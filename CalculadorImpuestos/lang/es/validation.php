@@ -277,7 +277,7 @@ return [
 
     'attributes' => [
         'password_confirmation' => 'confirmación de contraseña',
-        'contrasena' => 'contraseña',
+        'password' => 'contraseña',
     ],
 
     'custom' => [
