@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class UserController extends Controller
@@ -70,5 +72,34 @@ class UserController extends Controller
 
         $user->delete();
         return response()->json(['message' => 'Usuario eliminado correctamente']);
+    }
+
+    public function validarLogin(Request $request)
+    {
+        #validation
+        $credentials = [
+            'usuario' => $request->usuario,
+            'password' => $request->password,
+        ];
+
+        $remember = ($request->has('remember') ? true : false);
+
+        if(Auth::attempt($credentials, $remember))
+        {
+            $request->session()->regenerate();
+            #return redirect()->intended(route('ruta'));  //Entra en la ruta a la que se quería entrar antes
+        } else{
+            return redirect()->back()->with('error', 'Las credenciales son incorrectas');
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 }

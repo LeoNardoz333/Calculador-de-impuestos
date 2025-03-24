@@ -5,7 +5,7 @@
         @vite(['resources/css/Fuentes.css'])
         @vite(['resources/css/Recuadros.css'])
         @vite(['resources/css/Iconos.css'])
-        <link rel="stylesheet" href="{{ url('/css/Botones.css') }}">
+        @vite(['resources/js/f_login.js'])
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
         <meta charset="UTF-8">
         <title>Registrarse</title>
@@ -52,7 +52,8 @@
                         <label class="login">Contraseña:</label>
                         <div class="position-relative">
                             <input type="password" class="form-control" name="password" id="password">
-                            <button class="btn ojo position-absolute end-0" type="button" id="togglePassword">
+                            <button class="btn ojo position-absolute end-0" type="button" id="togglePassword"
+                            data-show="{{ asset('icons/showPass.png') }}" data-hide="{{ asset('icons/hidePass.png') }}">
                                 <img src="{{ asset('icons/showPass.png') }}" alt="ShowPassword" id="showPassword">
                             </button>
                         </div>
@@ -66,7 +67,8 @@
                         <div class="position-relative">
                             <input type="password" class="form-control" name="password_confirmation"
                              id="password_confirmation">
-                            <button class="btn ojo position-absolute end-0" type="button" id="confirmPassword">
+                            <button class="btn ojo position-absolute end-0" type="button" id="confirmPassword"
+                            data-show="{{ asset('icons/showPass.png') }}" data-hide="{{ asset('icons/hidePass.png') }}">
                                 <img src="{{ asset('icons/showPass.png') }}" alt="ShowConfirmPassword" id="showConfirmPassword">
                             </button>
                         </div>
@@ -93,28 +95,15 @@
             
             <script>
                 //Clicking on the eye icon to show and hide the password
-                document.getElementById("togglePassword")
-                .addEventListener("click", function () {
-                    togglePasswordVisibility("password", "showPassword");
+                document.addEventListener("DOMContentLoaded", function(){
+                    document.getElementById("togglePassword")
+                    .addEventListener("click", function () {
+                        togglePasswordVisibility("password", "togglePassword");
+                    });
+                    document.getElementById("confirmPassword").addEventListener("click", function (){
+                        togglePasswordVisibility("password_confirmation", "confirmPassword");
+                    });
                 });
-                document.getElementById("confirmPassword").addEventListener("click", function (){
-                    togglePasswordVisibility("password_confirmation", "showConfirmPassword");
-                });
-
-                function togglePasswordVisibility(inputId, inputIconId) {
-                    var passwordInput = document.getElementById(inputId);
-                    var passwordIcon = document.getElementById(inputIconId);
-
-                    if (passwordInput && passwordIcon) {
-                        if (passwordInput.type === "password") {
-                            passwordInput.type = "text";
-                            passwordIcon.src = "{{ asset('icons/hidePass.png') }}";
-                        } else {
-                            passwordInput.type = "password";
-                            passwordIcon.src = "{{ asset('icons/showPass.png') }}";
-                        }
-                    }
-                }
             </script>
         </body>
 </html>
