@@ -15,7 +15,7 @@
         <div class="w-100">
             @include('layouts.menu-admins-users')
         </div>
-        <div class="recuadro-blanco m-auto pb-4 pt-5" style="width: 30% !important;">
+        <div class="recuadro-blanco-login m-auto pb-4 pt-5">
             <div class="mb-2">
                 <form action="{{ route('user.login') }}" method="post">
                     <div class="w-100 d-flex justify-content-center">
