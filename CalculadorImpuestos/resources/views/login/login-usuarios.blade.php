@@ -16,8 +16,13 @@
             @include('layouts.menu-admins-users')
         </div>
         <div class="recuadro-blanco-login m-auto pb-4 pt-5">
+            @if (session('success'))
+                <div class="alert alert-success text-center" role="alert" 
+                id="alertSuccess">{{ session('success') }}</div>
+            @endif
             <div class="mb-2">
                 <form action="{{ route('user.login') }}" method="post">
+                    @csrf
                     <div class="w-100 d-flex justify-content-center">
                         <img class="m-auto" style="width: 45%;" src="{{ asset('icons/cuenta verde.png') }}" alt="">
                     </div>
@@ -28,8 +33,10 @@
                         <label class="login">Usuario:</label>
                     </div>
                     <div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="usuario">
                     </div>
+                    @error('usuario') <p class="text text-danger text-center">{{ $message }}</p>
+                    @enderror
                     <div class="mt-2">
                         <label class="login">Contraseña:</label>
                     </div>
@@ -40,6 +47,8 @@
                             <img src="{{ asset('icons/showPass.png') }}" alt="ShowConfirmPassword" id="ShowConfirmPassword">
                         </button>
                     </div>
+                    @error('password') <p class="text text-danger text-center">{{ $message }}</p>
+                    @enderror
                     <div class="mt-4">
                         <button type="submit" class="form-control btn btn-success">Iniciar sesión</button>
                     </div>
@@ -58,6 +67,7 @@
             addEventListener("click", function() {
                     togglePasswordVisibility("password", "togglePassword");
             });
+            hideAlert("alertSuccess");
         });
     </script>
 </body>
