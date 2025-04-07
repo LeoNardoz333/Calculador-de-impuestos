@@ -83,8 +83,6 @@ class UserController extends Controller
             'usuario' => 'required|string',
             'password' => 'required|string',
         ]);
-
-        $user = User::where('usuario', $validated['usuario'])->first();
         
         $key = 'login-attemps-' . $request->ip();
         if(RateLimiter::tooManyAttempts($key, 5)){
