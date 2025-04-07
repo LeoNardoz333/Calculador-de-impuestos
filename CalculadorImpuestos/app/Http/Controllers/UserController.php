@@ -79,12 +79,9 @@ class UserController extends Controller
     public function validarLogin(Request $request)
     {
         #dd($request->all());
-        if(Auth::check()){
-            return redirect()->route('v_menu-usuarios');
-        }
         $validated = $request->validate([
-            'usuario' => 'required | string',
-            'password' => 'required | string',
+            'usuario' => 'required|string',
+            'password' => 'required|string',
         ]);
 
         $user = User::where('usuario', $validated['usuario'])->first();
