@@ -52,6 +52,11 @@
                     <div class="mt-4">
                         <button type="submit" class="form-control btn btn-success">Iniciar sesión</button>
                     </div>
+                    <div class="w-100 form-check d-flex align-items-center justify-content-center mt-2">
+                        <input type="checkbox" id="remember" class="form-check-input me-2"
+                        name="remember">
+                        <label for="remember" class="form-check-label" style="padding-top: 3px;">Recuérdame</label>
+                    </div>
                     <div class="row text-center mt-2">
                         <a href="{{ route('v_sign-up') }}">¿No tienes una cuenta?, regístrate aquí</a>
                     </div>

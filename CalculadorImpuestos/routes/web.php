@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', function () { return view('/login/login-usuarios'); })->name('ho
 Route::get('/login/login-usuarios', function () { return view('/login/login-usuarios'); })
 ->name('V_login-usuarios');
 Route::post('/login/login-usuarios', [UserController::class, 'validarLogin'])->name('login.validate');
-Route::get('menu-usuarios', function(){ return view('menu-usuarios'); })->name('v_menu-usuarios');
+Route::get('menu-usuarios', function(){ return view('menu-usuarios'); })->middleware('auth')->name('v_menu-usuarios');
 
 #admins
 Route::get('/login/login-admins', function() { return view('/login/login-admins'); })

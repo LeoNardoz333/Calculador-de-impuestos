@@ -88,7 +88,7 @@ class UserController extends Controller
         ]);
 
         $user = User::where('usuario', $validated['usuario'])->first();
-
+        
         $key = 'login-attemps-' . $request->ip();
         if(RateLimiter::tooManyAttempts($key, 5)){
             throw ValidationException::withMessages([
@@ -96,12 +96,13 @@ class UserController extends Controller
             ]);
         }
 
-        if($user && Hash::check($validated['password'], $user->password))
-        {
-            Auth::login($user, true);
+        if(Auth::attempt([
+            'usuario' => $validated['usuario'],
+            'password' => $validated['password']
+        ], $request->filled('remember'))) {
             RateLimiter::clear($key);
             $request->session()->regenerate();
-            return redirect()->intended(route('v_menu-usuarios'));  //Entra en la ruta a la que se quería entrar antes
+            return redirect()->intended(route('v_menu-usuarios'));
         }
 
         RateLimiter::hit($key, 60);
