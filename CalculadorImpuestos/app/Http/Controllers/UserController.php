@@ -87,7 +87,7 @@ class UserController extends Controller
         $key = 'login-attemps-' . $request->ip();
         if(RateLimiter::tooManyAttempts($key, 5)){
             throw ValidationException::withMessages([
-                'password' => ['Demasiados intentos. Inténtalo de nuevo en uno minutos.'],
+                'password' => ['Demasiados intentos. Inténtalo de nuevo en unos minutos.'],
             ]);
         }
 
