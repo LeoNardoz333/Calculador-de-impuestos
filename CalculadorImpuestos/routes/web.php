@@ -27,6 +27,7 @@ Route::get('menu-usuarios', function(){ return view('menu-usuarios'); })->middle
 #admins
 Route::get('/login/login-admins', function() { return view('/login/login-admins'); })
 ->name('V_login-admins');
+Route::get('/menu-admins', function() { return view('menu-admins'); })->middleware('auth')->name('v_menu-admins');
 
 #Usuarios registro
 Route::get('login/sign-up', function() {return view('/login/sign-up'); })->name('v_sign-up');
