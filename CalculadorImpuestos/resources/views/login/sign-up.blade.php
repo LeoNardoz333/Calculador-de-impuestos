@@ -79,7 +79,7 @@
                 <input type="text" name="permisos" value="usuario" hidden>
                 <div class="row mt-4 d-flex justify-content-between align-items-center flex-column flex-md-row">
                     <div class="col-12 col-md-auto mb-2 mb-md-0 text-center">
-                        <a href=" {{ url()->previous() }}  " class="regresar w-100 w-md-auto">Regresar</a>
+                        <a href=" {{ /*url()->previous() */ route ('home') }}  " class="regresar w-100 w-md-auto">Regresar</a>
                     </div>
                     <div class="col-12 col-md-auto text-center">
                         <button type="submit" class="btn btn-success w-100 w-md-auto">Crear cuenta</button>
