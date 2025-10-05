@@ -97,6 +97,9 @@ class UserController extends Controller
         ], $request->filled('remember'))) {
             RateLimiter::clear($key);
             $request->session()->regenerate();
+            if(asset($request['permisos']) && $request['permisos'] == 'admin')
+                 return redirect()->intended(route('v_menu-admins'));
+            else
             return redirect()->intended(route('v_menu-usuarios'));
         }
 
@@ -112,5 +115,18 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('home');
+    }
+
+    /*
+use Illuminate\Support\Facades\DB;
+
+$usuario = DB::connection('mongodb')
+    ->collection('usuarios')
+    ->where('usuario', 'leovelprueba')
+    ->first();
+    */
+    public function getUserCamp($campo, $tabla)
+    {
+        
     }
 }
