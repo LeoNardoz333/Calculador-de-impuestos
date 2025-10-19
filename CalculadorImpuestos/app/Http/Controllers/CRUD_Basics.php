@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CRUD_Basics extends Controller
 {
@@ -60,9 +61,9 @@ class CRUD_Basics extends Controller
             return DB::connection('mongodb')->collection($collection)
             ->where($field, $filter)->first()->delete() > 0;
         }
-        catch(\Exception $msg)
+        catch(\Exception $e)
         {
-            Log::error('Error al eliminar el documento: ' . $msg->getMessage());
+            Log::error('Error al eliminar el documento: ' . $e->getMessage());
             return false;
         }
     }
@@ -72,9 +73,9 @@ class CRUD_Basics extends Controller
         try{
             return DB::connection('mongodb')->collection($collection)->delete() > 0;
         }
-        catch(\Exception $msg)
+        catch(\Exception $e)
         {
-            Log::error('Error al eliminar todos los documentos de la colección "' . $collection . '": ' . $msg->getMessage());
+            Log::error('Error al eliminar todos los documentos de la colección "' . $collection . '": ' . $e->getMessage());
             return false;
         }
     }
@@ -89,26 +90,50 @@ class CRUD_Basics extends Controller
                 }
                 return $query->delete() > 0;
         }
-        catch(\Exception $msg)
+        catch(\Exception $e)
         {
-            Log::error('Error al eliminar el documento: ' . $msg->getMessage());
+            Log::error('Error al eliminar el documento: ' . $e->getMessage());
             return false;
         }
     }
 
     ## - - - - - - - - - - - - - - - -  update methods - - - - - - - - - - - - - - -  ##    
-    public function updateDocument($filter)
+    public function updateDocument($collection, $field, $fieldValue, $filterField, $filter)
     {
-
+        try{
+            return DB::connection('mongodb')->collection($collection)
+            ->where($filterField, $filter)->update([$field => $fieldValue]);
+        }
+        catch (\Exception $e){
+            Log::error('Error al actualizar el documento "' . $collection . '": ' . $e->getMessage());
+            return false;
+        }
     }
 
-    public function updateDocuments()
+    public function updateDocuments($collection, array $data)
     {
-
+        try{
+            return  DB::connection('mongodb')->collection($collection)->update($data);
+        }
+        catch(\Exception $e){
+            Log::error('Error al actualizar los documentos de la colección "' . $collection . '": ' . $e->getMessage());
+            return false;
+        }
     }
 
-    public function updateDocumentByFilters(array $filters)
+    public function updateDocumentsByFilters($collection, array $values, array $filters)
     {
+        try {
+            $query = DB::connection('mongodb')->collection($collection);
 
+            foreach($filters as $field => $value)
+            {
+                $query->where($field, $value);
+            }
+            return $query->update($values);
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar los documentos de la colección "' . $collection . '": ' . $e->getMessage());
+            return false;
+        }
     }
 }
