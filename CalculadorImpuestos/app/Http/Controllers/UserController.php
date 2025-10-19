@@ -116,17 +116,4 @@ class UserController extends Controller
 
         return redirect()->route('home');
     }
-
-    /*
-use Illuminate\Support\Facades\DB;
-
-$usuario = DB::connection('mongodb')
-    ->collection('usuarios')
-    ->where('usuario', 'leovelprueba')
-    ->first();
-    */
-    public function getUserCamp($campo, $tabla)
-    {
-        
-    }
 }

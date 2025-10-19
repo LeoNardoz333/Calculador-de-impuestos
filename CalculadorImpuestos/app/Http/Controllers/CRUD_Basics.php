@@ -2,47 +2,98 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CRUD_Basics extends Controller
 {
     ## - - - - - - - - - - - - - - - -  get methods - - - - - - - - - - - - - - -  ##
-    public function getDocument($filter)
+    public function getDocument($collection, $field, $filter)
     {
-
+        return DB::connection('mongodb')
+        ->collection($collection)
+        ->where($field, $filter)
+        ->first() ?? null;
     }
 
-    public function getDocuments()
+    public function getDocuments($collection)
     {
-
+        return DB::connection('mongodb')
+        ->collection($collection)->get();
     }
 
-    public function getDocumentsByFilter($filter)
+    public function getDocumentsByFilter($collection, $field, $filter)
     {
-
+        return DB::connection('mongodb')
+        ->collection($collection)
+        ->where($field, $filter);
     }
 
-    public function getDocumentsByFilters(array $filters)
+    public function getDocumentsByFilters($collection, array $filters)
     {
-
+        $query = DB::connection('mongodb')->collection($collection);
+        foreach($filters as $field => $value)
+        {
+            $query->where($field, $value);
+        }
+        return $query->get();
     }
-    
+
+    ## - - - - - - - - - - - - - - - -  delete methods - - - - - - - - - - - - - - -  ##    
+    public function insertDocument($collection, array $data)
+    {
+        try{
+            DB::connection('mongodb')->collection($collection)->insert($data);
+        } catch(\Exception $e){
+            Log::error('Error al insertar documento: ' . $e->getMessage());
+            return null;
+        }
+    }
+
     ## - - - - - - - - - - - - - - - -  delete methods - - - - - - - - - - - - - - -  ##    
     
-    public function deleteDocument($filter)
+    public function deleteDocument($collection, $field, $filter)
     {
-
+        try{
+            return DB::connection('mongodb')->collection($collection)
+            ->where($field, $filter)->first()->delete() > 0;
+        }
+        catch(\Exception $msg)
+        {
+            Log::error('Error al eliminar el documento: ' . $msg->getMessage());
+            return false;
+        }
     }
 
-    public function deleteAllDocuments()
+    public function deleteAllDocuments($collection)
     {
-
+        try{
+            return DB::connection('mongodb')->collection($collection)->delete() > 0;
+        }
+        catch(\Exception $msg)
+        {
+            Log::error('Error al eliminar todos los documentos de la colección "' . $collection . '": ' . $msg->getMessage());
+            return false;
+        }
     }
 
-    public function deleteDocumentByFilters(array $filters)
+    public function deleteDocumentByFilters($collection, array $filters)
     {
-
+        try{
+                $query = DB::connection('mongodb')->collection($collection);
+                foreach($filters as $field => $value)
+                {
+                    $query->where($field, $value);
+                }
+                return $query->delete() > 0;
+        }
+        catch(\Exception $msg)
+        {
+            Log::error('Error al eliminar el documento: ' . $msg->getMessage());
+            return false;
+        }
     }
 
     ## - - - - - - - - - - - - - - - -  update methods - - - - - - - - - - - - - - -  ##    
