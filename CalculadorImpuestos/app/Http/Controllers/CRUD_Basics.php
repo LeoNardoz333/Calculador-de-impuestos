@@ -14,7 +14,7 @@ class CRUD_Basics extends Controller
     public function getDocument($collection, $field, $filter)
     {
         return DB::connection('mongodb')
-        ->collection($collection)
+        ->table($collection)
         ->where($field, $filter)
         ->first() ?? null;
     }

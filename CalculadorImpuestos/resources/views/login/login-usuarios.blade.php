@@ -23,6 +23,7 @@
             <div class="mb-2">
                 <form action="{{ route('user.login') }}" method="post">
                     @csrf
+                    <input type="hidden" name="permisos" value="user">
                     <div class="w-100 d-flex justify-content-center">
                         <img class="m-auto" style="width: 45%;" src="{{ asset('icons/cuenta verde.png') }}" alt="">
                     </div>

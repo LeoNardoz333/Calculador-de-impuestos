@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Http\Controllers\CRUD_Basics as ControllerCRUD_Basics;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\RateLimiter;
 
@@ -96,11 +97,27 @@ class UserController extends Controller
             'password' => $validated['password']
         ], $request->filled('remember'))) {
             RateLimiter::clear($key);
-            $request->session()->regenerate();
-            if(asset($request['permisos']) && $request['permisos'] == 'admin')
+            $request->session()->regenerate();                                  #document, field, filter
+            $usuario = (new ControllerCRUD_Basics())->getDocument("users","usuario", $validated['usuario']);
+            if($usuario->permisos == 'admin' && $request->permisos == 'admin')
                  return redirect()->intended(route('v_menu-admins'));
+            else if($usuario->permisos== 'usuario' && $request->permisos== 'user')
+                return redirect()->intended(route('v_menu-usuarios'));
+            else if($usuario->permisos== 'admin' && $request->permisos== 'user')
+            {
+                Auth::logout();
+                return back()->withErrors(['usuario' => 'Las credenciales son incorrectas.']);
+            }
+            else if($usuario->permisos== 'usuario' && $request->permisos == 'admin')
+            {
+                Auth::logout();
+                return back()->withErrors(['usuario' => 'Este usuario no cuenta con permisos de administrador.']);
+            }
             else
-            return redirect()->intended(route('v_menu-usuarios'));
+            {
+                Auth::logout();
+                return back()->withErrors(['usuario' => 'Las credenciales son incorrectas.']);
+            }
         }
 
         RateLimiter::hit($key, 60);
