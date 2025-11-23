@@ -8,6 +8,10 @@
     padding-right: 2.93rem;
 }
 
+.bg-login{
+    background-color: rgb(189, 235, 203);
+}
+
 @media (max-width: 600px) {
     .recuadro-blanco {
         width: 85%;
