@@ -5,25 +5,14 @@
 @endsection
 
 @section('main')
-    <div class="d-flex flex-column vh-100">
-        <div class="recuadro-blanco-login m-auto pb-4 pt-5">
-            @if (session('success'))
-                <div class="alert alert-success text-center" role="alert" id="alertSuccess">
-                    {{ session('success') }}
-                </div>
-            @endif
-            <div class="mb-2">
-                <form action="{{ route('user.login') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="permisos" value="user">
+    <input type="hidden" name="permisos" value="user">
+    <div class="text-center mt-2 mb-3">
+        <label class="titulos-negritas">Iniciar sesión</label>
+    </div>
 
-                    @include('components.forms.login-form')
+    @include('components.forms.login-form')
 
-                    <div class="row text-center mt-2">
-                        <a href="{{ route('v_sign-up') }}">¿No tienes una cuenta?, regístrate aquí</a>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="row text-center mt-2">
+        <a href="{{ route('v_sign-up') }}">¿No tienes una cuenta?, regístrate aquí</a>
     </div>
 @endsection

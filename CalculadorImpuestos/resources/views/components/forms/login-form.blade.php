@@ -1,9 +1,3 @@
-<div class="w-100 d-flex justify-content-center">
-    <img class="m-auto" style="width: 45%;" src="{{ asset('icons/cuenta verde.png') }}" alt="">
-</div>
-<div class="text-center mt-2 mb-3">
-    <label class="titulos-negritas">Iniciar sesión</label>
-</div>
 <div class="mt-2">
     <label class="login">Usuario:</label>
 </div>
