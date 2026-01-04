@@ -15,21 +15,23 @@ use GuzzleHttp\Middleware;
 |
 */
 
-#Home
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Home - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::get('/', function () { return view('/login/login-usuarios'); })->name('home');
 
-#usuarios
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - usuarios - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::get('/login/login-usuarios', function () { return view('/login/login-usuarios'); })
 ->name('V_login-usuarios');
 Route::post('/login/login-usuarios', [UserController::class, 'validarLogin'])->name('login.validate');
 Route::get('menu-usuarios', function(){ return view('menu-usuarios'); })->middleware('auth')->name('v_menu-usuarios');
 
-#admins
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - admins - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+#login
 Route::get('/login/login-admins', function() { return view('/login/login-admins'); })
 ->name('V_login-admins');
-Route::get('/menu-admins', function() { return view('menu-admins'); })->middleware('auth')->name('v_menu-admins');
+#Menu
+Route::get('/menu-admins', function() {return view('/admins/menu-admins'); })->name('v_menu-admins');
 
-#Usuarios registro
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - registro de usuarios - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::get('login/sign-up', function() {return view('/login/sign-up'); })->name('v_sign-up');
 Route::post('/login/sign-up', [UserController::class, 'store'])->name('users.store');
 Route::post('/login/login-usuarios',[UserController::class, 'validarLogin'])->name('user.login');

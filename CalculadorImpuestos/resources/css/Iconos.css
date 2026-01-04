@@ -1,3 +1,4 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - Password - - - - - - - - - - - - - - - - - - - - - - - - */
 .ojo{
     outline: none !important;
     box-shadow: none !important;
@@ -23,4 +24,11 @@
 .ojo img {
     pointer-events: none;
     user-select: none;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - Navbar user - - - - - - - - - - - - - - - - - - - - - - - - */
+.navbar-user {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

@@ -11,3 +11,17 @@
 .navbar-toggler-icon {
     filter: invert(99%) sepia(4%) saturate(296%) hue-rotate(87deg) brightness(107%) contrast(96%);
 }
+
+.navbar-log-out {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 4px 5px;
+    border-radius: 17%; 
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-log-out:hover {
+    background-color: #bef5be;
+}
