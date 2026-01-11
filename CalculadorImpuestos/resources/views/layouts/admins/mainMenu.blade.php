@@ -13,7 +13,8 @@
 
 <body>
     <header>
-        @include('components.menus.menu-admins')
+        <x-menus.menu-admins title="Administrador del sistema" navbarColor="#d3ffd0" 
+        logOutIcon="icons/cerrar-sesion verde.png" userIcon="icons/cuenta(1).png" />
         @yield('header')
     </header>
     <main>
