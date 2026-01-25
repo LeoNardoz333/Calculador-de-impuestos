@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/Botones.css', 'resources/css/Fuentes.css', 'resources/css/Iconos.css',
-     'resources/css/Texto.css', 'resources/js/app.js'])
+     'resources/css/Texto.css', 'resources/css/Recuadros.css', 'resources/css/Lists.css',
+      'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>Inicio</title>
 </head>
@@ -18,6 +19,7 @@
         @yield('header')
     </header>
     <main>
+        @include('components.menus.homepage.side-menu-admins')
         @yield('main')
     </main>
     <footer>
