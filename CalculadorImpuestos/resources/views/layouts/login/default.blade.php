@@ -4,39 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/Recuadros.css'])
-    @vite(['resources/css/Fuentes.css'])
-    @vite(['resources/css/Iconos.css'])
-    @vite(['resources/js/f_login.js'])
+    @vite(['resources/css/elements/divs.css', 'resources/css/elements/buttons.css',
+     'resources/css/elements/fonts.css', 'resources/css/elements/icons.css',
+      'resources/css/elements/texts.css', 'resources/js/app.js', 'resources/js/modules/login/f_login.js',
+       'resources/css/elements/navbars.css', 'resources/css/elements/inputs.css'])
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 
-<body class="bg-login">
-    <header>
-        @yield('header-menu')
-    </header>
+<body class="bg-login h-100">
+    <div class="d-flex flex-column min-vh-100">
+        <header>
+            @yield('header-menu')
+        </header>
 
-    <main>
-        <div class="d-flex flex-column vh-100">
-            <div class="recuadro-blanco-login m-auto pb-4 pt-5">
-                @if (session('success'))
-                    <div class="alert alert-success text-center" role="alert" id="alertSuccess">
-                        {{ session('success') }}
-                    </div>
-                @endif
-                <div class="mb-2">
-                    <form action="{{ route('user.login') }}" method="post">
-                        @csrf
-                        <div class="w-100 d-flex justify-content-center">
-                            <img class="m-auto" style="width: 45%;" src="{{ asset('icons/cuenta verde.png') }}"
-                                alt="">
+        <main class="flex-grow-1  d-flex">
+            <div class="d-flex justify-content-center align-items-center w-100">
+                <div class="white-box-login">
+                    @if (session('success'))
+                        <div class="alert alert-success text-center" role="alert" id="alertSuccess">
+                            {{ session('success') }}
                         </div>
-                        @yield('main')
-                    </form>
+                    @endif
+                    <div class="mb-2">
+                        <form action="{{ route('user.login') }}" method="post">
+                            @csrf
+                            <div class="w-100 d-flex justify-content-center">
+                                <i class="bi bi-person-fill login-big-user-icon"></i>
+                            </div>
+                            @yield('main')
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+    </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -45,7 +46,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("togglePassword").
             addEventListener("click", function() {
-                togglePasswordVisibility("password", "togglePassword");
+                window.togglePasswordVisibility("password", "togglePassword", "iconPassword");
             });
             hideAlert("alertSuccess");
         });

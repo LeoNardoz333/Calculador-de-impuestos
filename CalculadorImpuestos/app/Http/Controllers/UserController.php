@@ -60,8 +60,10 @@ class UserController extends Controller
             'confirm-password' => 'required|string|min:6|max:20',
         ]);
 
-        if(isset($validated['contrasena']))
-            $validated['contrasena'] = bcrypt($validated['contrasena']);
+        if(isset($validated['password']) && $validated['password'] !== $validated['confirm-password']){
+            return response()->json(['message' => 'Las contraseñas no coinciden'], 400);
+        }
+            $validated['password'] = bcrypt($validated['password']);
 
         $user->update($validated);
         return response()->json($user);

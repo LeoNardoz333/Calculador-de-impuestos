@@ -1,8 +1,14 @@
+@props(['permissions', 'loginTitle'])
+<input type="hidden" name="permisos" value="{{ $permissions }}">
+<div class="text-center mt-2 mb-3">
+    <label class="titulos-negritas">{{ $loginTitle }}</label>
+</div>
 <div class="mt-2">
     <label class="login">Usuario:</label>
 </div>
 <div>
-    <input type="text" class="form-control" name="usuario">
+    <input type="text" class="form-control login-form-input-text" name="usuario" 
+    placeholder="Ingresa el nombre de usuario" value="{{ old('usuario') }}">
 </div>
 @error('usuario')
     <p class="text text-danger text-center">{{ $message }}</p>
@@ -11,10 +17,10 @@
     <label class="login">Contraseña:</label>
 </div>
 <div class="position-relative">
-    <input class="form-control" type="password" id="password" name="password">
-    <button class="btn ojo end-0" id="togglePassword" type="button" data-show="{{ asset('icons/showPass.png') }}"
-        data-hide="{{ asset('icons/hidePass.png') }}">
-        <img src="{{ asset('icons/showPass.png') }}" alt="ShowConfirmPassword" id="ShowConfirmPassword">
+    <input class="form-control login-form-input-text" type="password" id="password" 
+    name="password" placeholder="Ingresa la contraseña" value="{{ old('password') }}">
+    <button class="btn ojo end-0" id="togglePassword" type="button">
+        <i class="bi bi-eye-fill ojo ojo-login-color" id="iconPassword"></i>
     </button>
 </div>
 @error('password')

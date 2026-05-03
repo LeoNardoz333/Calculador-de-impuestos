@@ -1,15 +1,17 @@
-window.togglePasswordVisibility = function(inputId, buttonId) {
+window.togglePasswordVisibility = function(inputId, buttonId, iconId) {
     var passwordInput = document.getElementById(inputId);
     var toggleButton = document.getElementById(buttonId);
-    var passwordIcon = toggleButton.querySelector("img");
+    var icon = document.getElementById(iconId);
 
-    if (passwordInput && passwordIcon && toggleButton) {
+    if (passwordInput && icon && toggleButton) {
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.src = toggleButton.dataset.hide;
+            icon.classList.remove("bi-eye-fill");
+            icon.classList.add("bi-eye-slash-fill");
         } else {
             passwordInput.type = "password";
-            passwordIcon.src = toggleButton.dataset.show;
+            icon.classList.remove("bi-eye-slash-fill");
+            icon.classList.add("bi-eye-fill");
         }
     }
 }

@@ -5,10 +5,5 @@
 @endsection
 
 @section('main')
-    <input type="hidden" name="permisos" value="admin">
-    <div class="text-center mt-2 mb-3">
-        <label class="titulos-negritas">Login - Administradores</label>
-    </div>
-
-    @include('components.forms.login-form')
+    <x:forms.login-form :permissions="'admin'" :loginTitle="'Login - Administradores'" />
 @endsection

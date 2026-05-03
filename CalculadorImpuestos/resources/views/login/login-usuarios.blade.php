@@ -5,12 +5,8 @@
 @endsection
 
 @section('main')
-    <input type="hidden" name="permisos" value="user">
-    <div class="text-center mt-2 mb-3">
-        <label class="titulos-negritas">Iniciar sesión</label>
-    </div>
 
-    @include('components.forms.login-form')
+    <x:forms.login-form :permissions="'user'" :loginTitle="'Inicio de sesión'" />
 
     <div class="row text-center mt-2">
         <a href="{{ route('v_sign-up') }}">¿No tienes una cuenta?, regístrate aquí</a>
