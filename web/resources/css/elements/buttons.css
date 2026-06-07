@@ -1,0 +1,36 @@
+/* @import "bootstrap"; */
+.Verde{
+    background-color: #07c080;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(99%) sepia(4%) saturate(296%) hue-rotate(87deg) brightness(107%) contrast(96%);
+}
+
+.navbar-log-out {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 4px 5px;
+    border-radius: 37%; 
+    cursor: pointer;
+    max-height: 42px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-log-out:hover {
+    background-color: #bef5be;
+}
+
+.btn-sign-up{
+    width: 100%;
+    padding: 0.375rem 1.7rem;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: rgba(0, 110, 35, 0.2) 0px 2px 4px 0px, rgba(0, 110, 35, 0.22) 0px 2px 5px 0px;
+}

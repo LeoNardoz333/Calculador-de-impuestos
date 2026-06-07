@@ -1,0 +1,18 @@
+.login-form-input-text::placeholder {
+    color: rgb(189, 196, 191) !important;
+}
+
+.login-form-input-text:focus {
+    border-color: rgb(148, 211, 171) !important;
+    box-shadow: 0 0 0 0.2rem rgba(148, 211, 171, 0.25) !important;
+}
+
+.login-form-input-text:focus-visible {
+    border-color: rgb(148, 211, 171) !important;
+    box-shadow: 0 0 0 0.2rem rgba(148, 211, 171, 0.25) !important;
+}
+
+.login-form-input-text:focus-within {
+    border-color: rgb(148, 211, 171) !important;
+    box-shadow: 0 0 0 0.2rem rgba(148, 211, 171, 0.25) !important;
+}
