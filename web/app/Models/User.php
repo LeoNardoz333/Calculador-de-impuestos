@@ -5,7 +5,7 @@ namespace App\Models;
 use MongoDB\Laravel\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Enums\Role as UserRole;
+use App\Enums\userRole;
 
 /**
  * @property string $_id
@@ -17,8 +17,8 @@ use App\Enums\Role as UserRole;
  * @property string $username
  * @property string $password
  * @property UserRole $role
- * @property string|null $remember_token
  * @property string $full_name
+ * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
