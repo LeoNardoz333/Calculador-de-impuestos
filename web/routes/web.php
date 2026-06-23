@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,42 +16,21 @@ use GuzzleHttp\Middleware;
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - home - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::get('/', function () {
-    return redirect()->route('auth.users.login');
+    return redirect()->route('auth.login.form');
 })->name('home');
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - auth - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::prefix('auth')->name('auth.')->group(function () {
     #Users authentication
-    Route::get('users', function () {
-        return view('auth.users.login');
-    })->name('users.login');
+    Route::view('login', 'auth')->name('login.form');
 
-    Route::post('users', [UserController::class, 'store'])->name('users.store');
-    Route::post('users/login', [AuthController::class, 'attempt'])->name('users.attempt');
-
-
-    Route::get('admins', function () {
-        return view('admins.index');
-    })->name('admins.login');
+    Route::post('login', [AuthController::class, 'login'])->name('login');
 
     #Sign up
-    Route::get('sign-up', function () {
-        return view('auth.register');
-    })->name('sign-up');
+    Route::view('sign-up', 'auth.register')->name('register.form');
 
-    Route::post('sign-up', [UserController::class, 'store'])->name('register.store');
-});
+    Route::post('sign-up', [AuthController::class, 'register'])->name('register');
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - users - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-Route::middleware(['auth'])->prefix("users")->name("users.")->group(function () {
-    Route::get('dashboard', function () {
-        return view('users.home.index');
-    })->name('dashboard');
-});
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - admins - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-Route::prefix('admins')->name('admins.')->group(function () {
-    Route::get('dashboard', function () {
-        return view('admins.home.index');
-    })->name('dashboard');
+    # Logout
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
