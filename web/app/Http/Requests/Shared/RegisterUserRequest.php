@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Shared;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -23,12 +23,12 @@ class RegisterUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:100'],
-            'first_last_name' => ['required', 'string', 'max:50'],
-            'second_last_name' => ['required', 'string', 'max:50'],
+            'name' => ['required', 'string', 'min:2', 'max:100', 'regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/u'],
+            'first_last_name' => ['required', 'string', 'min:2', 'max:50', 'regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/u'],
+            'second_last_name' => ['required', 'string', 'min:2', 'max:50', 'regex:/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/u'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'username' => ['required', 'string', 'min:3', 'max:50', Rule::unique('users', 'username')],
-            'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 }

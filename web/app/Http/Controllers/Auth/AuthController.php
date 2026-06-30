@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -8,30 +8,25 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Models\User;
 use App\Enums\UserRole;
-use App\Http\Requests\RegisterUserRequest;
+use App\Http\Requests\Shared\RegisterUserRequest;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
     public function register(RegisterUserRequest $request)
     {
-        $user = User::create([
+        User::create([
             ...$request->validated(),
             'role' => UserRole::TAXPAYER,
         ]);
 
         return redirect()
-            ->route('auth.users.login')
+            ->route('auth.login.form')
             ->with('success', 'Usuario registrado exitosamente. Por favor, inicie sesión.');
     }
 
     public function login(Request $request)
     {
-        $routes = [
-            UserRole::ADMIN => 'admins.dashboard',
-            UserRole::TAXPAYER => 'users.dashboard',
-            UserRole::ACCOUNTANT => 'accountants.dashboard',
-        ];
-
         $validated = $request->validate([
             'login' => ['required', 'string'],
             'password' => ['required', 'string'],
@@ -57,7 +52,7 @@ class AuthController extends Controller
             $user = Auth::user();
 
             return match ($user->role) {
-                UserRole::ADMIN => redirect()->intended('admins/dashboard'),
+                UserRole::ADMIN => redirect()->intended('admins.dashboard'),
                 UserRole::TAXPAYER => redirect()->route('users.dashboard'),
                 UserRole::ACCOUNTANT => redirect()->route('accountants.dashboard'),
                 
