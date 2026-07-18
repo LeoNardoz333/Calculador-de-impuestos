@@ -6,6 +6,6 @@
     <title>Menú Administradores</title>
 </head>
 <body>
-    <h1>Menú de admins owo</h1>
+    <h1>Menú de admins owo ewe</h1>
 </body>
 </html>
