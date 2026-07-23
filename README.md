@@ -1,155 +1,116 @@
-# Tax Calculator
+-- English Description --
+# Tax-Calculator
+Tax calculator for the SAT (Mexican tax authority), in its first version it will be for RESICO taxpayers.
 
-Tax Calculator is a web application designed to help Mexican taxpayers estimate and manage their tax obligations according to SAT regulations.
+RESICO:
+ - Keep track of expenses
+ - Keep track of earnings
+ - Calculate annual and monthly ISR (Income Tax)
+ - Option for cryptocurrencies
+ - Annual interest income
+ - Option to generate PDF reports for each table
 
-The first version focuses on **RESICO (Régimen Simplificado de Confianza)** taxpayers and includes tools for tracking income, expenses, and calculating estimated tax liabilities.
+Development technologies:
+ - PHP (Laravel)
+ - Python APIs (Django)
+ - CSS
+ - HTML
+ - Javascript
+ - MongoDB database
 
-## Features
+Development environments:
+ - Visual Studio Code
+ - Studio 3T / MongoDB Compass
+ - Linux Terminal
 
-### RESICO
+-- Descripción en Español --
+# Calculador-de-impuestos
+Calculadora de impuestos para el SAT, en la primera versión servirá para RESICO.
+RESICO:
+  - Llevar el registro de gastos
+  - Llevar el registro de ganancias
+  - Calcular el ISR (Impuesto Sobre la Renta) anual y mensual
+  - Opción para criptomonedas
+  - Ganancia anual por intereses
+  - Opción para generar reportes en PDF de cada tabla
 
-* Income tracking
-* Expense tracking
-* Monthly ISR (Income Tax) calculation
-* Annual ISR calculation
-* Cryptocurrency income support
-* Annual interest income support
-* PDF report generation
-* Tax simulations and projections
+Tecnologías de desarrollo:
+- PHP (Laravel)
+- APIs Python (Django)
+- CSS
+- HTML
+- Javascript
+- Base de datos MongoDB
 
-## Architecture
-
-The project is divided into two main components:
-
-### Web Application
-
-Responsible for:
-
-* User interface
-* Authentication
-* Data management
-* Reports and dashboards
-
-### Tax Engine API
-
-Responsible for:
-
-* Tax calculations
-* Fiscal rules processing
-* Simulations and projections
-* Validation of tax scenarios
-
-## Technologies
-
-### Web Application
-
-* PHP
-* Laravel
-* Vue.js
-* HTML
-* CSS
-* JavaScript
-
-### Tax Engine
-
-* Python
-* FastAPI (planned)
-
-### Database
-
-* MongoDB
-
-## Development Tools
-
-* Visual Studio Code
-* MongoDB Compass
-* Studio 3T
-* Linux Terminal
-
-## Future Features
-
-* Additional tax regimes
-* Tax comparison between regimes
-* Annual tax projections
-* Financial analytics dashboards
-* Exportable reports
-* Fiscal scenario simulations
+Entornos de desarrollo:
+- Visual Studio Code
+- Studio 3T / MongoDB Compass
+- Terminal de Linux
 
 
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# Calculador de Impuestos
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Calculador de Impuestos es una aplicación web diseñada para ayudar a los contribuyentes mexicanos a estimar y administrar sus obligaciones fiscales conforme a las disposiciones del SAT.
+## About Laravel
 
-La primera versión estará enfocada en contribuyentes del **Régimen Simplificado de Confianza (RESICO)** e incluirá herramientas para registrar ingresos, gastos y calcular impuestos estimados.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## Funcionalidades
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-### RESICO
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-* Registro de ingresos
-* Registro de gastos
-* Cálculo mensual de ISR
-* Cálculo anual de ISR
-* Soporte para ingresos por criptomonedas
-* Soporte para ingresos por intereses
-* Generación de reportes en PDF
-* Simulaciones y proyecciones fiscales
+## Learning Laravel
 
-## Arquitectura
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-El proyecto está dividido en dos componentes principales:
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-### Aplicación Web
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-Responsable de:
+## Laravel Sponsors
 
-* Interfaz de usuario
-* Autenticación
-* Administración de datos
-* Reportes y paneles de control
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Motor Fiscal (API)
+### Premium Partners
 
-Responsable de:
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[WebReinvent](https://webreinvent.com/)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Jump24](https://jump24.co.uk)**
+- **[Redberry](https://redberry.international/laravel/)**
+- **[Active Logic](https://activelogic.com)**
+- **[byte5](https://byte5.de)**
+- **[OP.GG](https://op.gg)**
 
-* Cálculos fiscales
-* Procesamiento de reglas tributarias
-* Simulaciones y proyecciones
-* Validación de escenarios fiscales
+## Contributing
 
-## Tecnologías
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-### Aplicación Web
+## Code of Conduct
 
-* PHP
-* Laravel
-* Vue.js
-* HTML
-* CSS
-* JavaScript
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-### Motor Fiscal
+## Security Vulnerabilities
 
-* Python
-* FastAPI (planeado)
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-### Base de Datos
+## License
 
-* MongoDB
-
-## Herramientas de Desarrollo
-
-* Visual Studio Code
-* MongoDB Compass
-* Studio 3T
-* Terminal de Linux
-
-## Funcionalidades Futuras
-
-* Soporte para otros regímenes fiscales
-* Comparación entre regímenes
-* Proyecciones fiscales anuales
-* Paneles de análisis financiero
-* Exportación avanzada de reportes
-* Simulación de escenarios fiscales
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
