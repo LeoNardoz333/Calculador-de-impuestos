@@ -10,27 +10,21 @@
 
     @stack('styles')
 
-    <title>@yield('title', 'Calculador de Impuestos')</title>
+    <title>@yield('title', config('app.name'))</title>
 </head>
 
 <body class="bg-login h-100">
     <div class="d-flex flex-column min-vh-100">
-        <header>
-            @yield('header-menu')
-        </header>
 
-        <main class="flex-grow-1 d-flex">
-            <div class="d-flex justify-content-center align-items-center w-100">
-                <div class="white-box-login">
+        <main class="flex-grow-1 d-flex justify-content-center align-items-center">
+                <div class="@yield('container-class', 'white-box-login')">
                     <x-alert />
                     
                     <div class="mb-2">
                         @yield('content')
                     </div>
                 </div>
-            </div>
-        </div>
-    </main>
+        </main>
 
     @stack('scripts')
 </body>

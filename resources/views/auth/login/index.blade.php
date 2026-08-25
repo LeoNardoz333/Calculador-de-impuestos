@@ -1,14 +1,14 @@
-@extends('layouts.login.default')
+@extends('layouts.auth')
 
-@section('header-menu')
-    @include('components.menus.menu-admins-users')
-@endsection
+@section('title', 'Inicio de sesión')
 
-@section('main')
+@section('content')
+    @include('auth.login._form')
 
-    <x:forms.login-form :permissions="'user'" :loginTitle="'Inicio de sesión'" />
-
-    <div class="row text-center mt-2">
-        <a href="{{ route('v_sign-up') }}">¿No tienes una cuenta?, regístrate aquí</a>
-    </div>
+    <p class="text-center mt-2">
+        ¿No tienes una cuenta?
+        <a href="{{ route('register.form') }}">
+            Regístrate aquí
+        </a>
+    </p>
 @endsection
