@@ -16,18 +16,18 @@ use App\Http\Controllers\Auth\AuthController;
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - home - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::get('/', function () {
-    return redirect()->route('auth.login.form');
+    return redirect()->route('auth.login.index');
 })->name('home');
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - auth - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Route::prefix('auth')->name('auth.')->group(function () {
     #Users authentication
-    Route::view('login', 'auth')->name('login.form');
+    Route::view('login', 'auth.login.index')->name('login');
 
     Route::post('login', [AuthController::class, 'login'])->name('login');
 
     #Sign up
-    Route::view('sign-up', 'auth.register')->name('register.form');
+    Route::view('sign-up', 'auth.register.index')->name('register');
 
     Route::post('sign-up', [AuthController::class, 'register'])->name('register');
 
