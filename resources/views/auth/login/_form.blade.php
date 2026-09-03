@@ -1,47 +1,19 @@
-<form method="POST" action="{{ route('login') }}" class="w-100">
+<form method="POST" action="{{ route('auth.login') }}" class="w-100">
     @csrf
     <div class="text-center mt-2 mb-3">
         <h2 class="bold-title-login">Inicio de sesión</h2>
     </div>
 
-    <div class="mt-2">
-        <label class="login" for="username">Usuario:</label>
-    </div>
+    <x-form.input name="username" label="Usuario:" labelClass="mt-2" 
+        autofocus required placeholder="Ingresa el nombre de usuario" />
 
-    <div>
-        <input type="text" class="form-control login-form-input-text" id="username" name="username"
-            autocomplete="username" autofocus required placeholder="Ingresa el nombre de usuario"
-            value="{{ old('username') }}">
-    </div>
+    <x-form.password name="password" label="Contraseña:" labelClass="mt-2"
+        required autocomplete="current-password" />
 
-    @error('username')
-        <p class="text text-danger text-center">{{ $message }}</p>
-    @enderror
+    <x-buttons.primary-button type="submit" :useIcon="false" class="mt-4">
+        Iniciar sesión
+    </x-buttons.primary-button>
 
-    <div class="mt-2">
-        <label class="login" for="password">Contraseña:</label>
-    </div>
-
-    <div class="position-relative">
-        <input class="form-control login-form-input-text" type="password" id="password" autocomplete="current-password"
-            required name="password" placeholder="Ingresa la contraseña">
-
-        <button class="absolute-input-icon end-0" id="togglePassword" type="button" aria-label="Mostrar contraseña">
-            <i class="bi bi-eye-fill absolute-input-icon auth-eye-color" id="iconPassword"></i>
-        </button>
-    </div>
-
-    @error('password')
-        <p class="text text-danger text-center">{{ $message }}</p>
-    @enderror
-
-    <div class="mt-4">
-        <button type="submit" class="btn btn-success w-100">Iniciar sesión</button>
-    </div>
-
-    <div class="w-100 form-check d-flex align-items-center justify-content-center mt-2">
-        <input type="checkbox" id="remember" class="form-check-input me-2" name="remember">
-
-        <label for="remember" class="form-check-label pt-2">Recuérdame</label>
-    </div>
+    <x-form.checkbox name="remember" label="Recuérdame"
+     containerClass="w-100 mt-2 d-flex align-items-center justify-content-center" />
 </form>

@@ -12,118 +12,46 @@
                 </div>
             </div>
         </div>
-        <form action="{{ route('sign-up.register') }}" method="POST">
+        <form action="{{ route('auth.register') }}" method="POST">
             @csrf
 
             <div class="row mt-2 mb-2">
-
-                <div class="col-12">
-                    <label for="name" class="login mb-1">Nombre:</label>
-
-                    <input type="text" class="form-control login-form-input-text" name="name" id="name"
-                        value="{{ old('name') }}" placeholder="Nombre completo">
-
-                    @error('name')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.input name="name" label="Nombre(s):" placeholder="Nombre(s)" required />
             </div>
 
             <div class="row mb-2">
-                <div class="col-12">
-                    <label for="last_name" class="login mb-1">Apellido(s):</label>
-
-                    <input type="text" class="form-control login-form-input-text" name="last_name" id="last_name"
-                        value="{{ old('last_name') }}" placeholder="Apellido(s) completo">
-
-
-                    @error('last_name')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.input name="last_name" label="Apellido(s):" placeholder="Apellidos completos" required />
             </div>
 
             <div class="row mt-2 mb-2">
-                <div class="col-12">
-                    <label for="username" class="login mb-1">Nombre de usuario:</label>
-
-                    <input type="text" class="form-control login-form-input-text" name="username" id="username"
-                        value="{{ old('username') }}" placeholder="Nombre de usuario">
-
-                    @error('username')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.input name="username" label="Nombre de usuario:" placeholder="Nombre de usuario" required />
             </div>
 
             <div class="row mb-2">
-                <div class="col-12">
-                    <label for="email" class="login mb-1">Correo electrónico:</label>
-
-                    <input type="email" class="form-control login-form-input-text" name="email" id="email"
-                        value="{{ old('email') }}" placeholder="Correo electrónico">
-
-                    @error('email')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.input name="email" type="email" label="Correo electrónico:" placeholder="Correo electrónico" required />
             </div>
 
             <div class="row mb-2">
-                <div class="col-12">
-                    <label for="password" class="login mb-1">Contraseña:</label>
-
-                    <div class="position-relative">
-                        <input type="password" class="form-control login-form-input-text" name="password" id="password"
-                            placeholder="*******">
-
-                        <button class="absolute-input-icon end-0" type="button" id="togglePassword"
-                            aria-label="Mostrar contraseña">
-                            <i class="bi bi-eye-fill absolute-input-icon auth-eye-color" id="iconPassword"></i>
-                        </button>
-                    </div>
-
-                    @error('password')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.password name="password" label="Contraseña:" required />
             </div>
 
             <div class="row mb-2">
-                <div class="col-12">
-                    <label for="password_confirmation" class="login mb-1">Confirmar contraseña:</label>
-
-                    <div class="position-relative">
-                        <input type="password" class="form-control login-form-input-text" name="password_confirmation"
-                            id="password_confirmation" placeholder="*******">
-
-                        <button class="absolute-input-icon end-0" type="button" id="confirmPassword"
-                            aria-label="Mostrar contraseña">
-                            <i class="bi bi-eye-fill absolute-input-icon auth-eye-color" id="iconConfirmPassword"></i>
-                        </button>
-                    </div>
-
-                    @error('password_confirmation')
-                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror
-                </div>
+                <x-form.password name="password_confirmation" label="Confirmar contraseña:" required />
             </div>
 
             <div class="row mt-4 d-flex justify-content-between align-items-center flex-column flex-md-row">
                 <div class="col-12 col-md-auto mb-2 mb-md-0 text-center">
-                    <a href="{{ route('home') }}"
-                        class="go-back-button w-100 w-md-auto d-inline-flex align-items-center gap-0">
-                        <i class="bi bi-arrow-left-short go-back-icon"></i>
-                        <span>Regresar</span>
-                    </a>
+                    <x-form.back-button :href="{{ route('auth.login') }}">
+                        Regresar
+                    </x-form.back-button>
                 </div>
 
                 <div class="col-12 col-md-auto text-center">
-                    <button type="submit" class="btn btn-success btn-register w-md-auto">Crear
-                        cuenta</button>
+                    <x-form.primary-button type="submit" :useIcon="false">
+                        Crear cuenta
+                    </x-form.primary-button>
                 </div>
             </div>
         </form>
     </div>
-</div>
 </div>
