@@ -1,6 +1,6 @@
 @props([
     'type' => 'button',
-    'useIcon' => false,
+    'useIcon' => true,
     'iconClass' => 'bi bi-arrow-right-short absolute-button-icon end-0',
 ])
 
