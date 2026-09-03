@@ -4,6 +4,7 @@ namespace App\Http\Requests\Shared;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Enums\UserRole;
 
 class RegisterUserRequest extends FormRequest
 {
@@ -29,6 +30,7 @@ class RegisterUserRequest extends FormRequest
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'username' => ['required', 'string', 'min:3', 'max:50', Rule::unique('users', 'username')],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => ['required', Rule::enum(UserRole::class)],
         ];
     }
 }
