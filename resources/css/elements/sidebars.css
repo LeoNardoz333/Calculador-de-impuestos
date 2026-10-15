@@ -1,0 +1,7 @@
+.app-sidebar {
+    background-color: var(--color-sidebar-background);
+    max-width: 250px;
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}

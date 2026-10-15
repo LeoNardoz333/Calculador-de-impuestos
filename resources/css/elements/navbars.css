@@ -1,5 +1,20 @@
-.navbar-login {
-    background-color:rgb(155, 239, 187);
+.navbar-nav .nav-link {
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 3px;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: var(--color-navbar-link-hover) !important;
+    color: var(--color-navbar-link-hover-text) !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(99%) sepia(4%) saturate(296%) hue-rotate(87deg) brightness(107%) contrast(96%);
 }
 
 /* Subrayado para el item activo del navbar */
@@ -19,11 +34,29 @@
     transform: translateX(-50%);
     width: 105%;
     height: 2px;
-    background-color: rgba(82, 164, 104, 0.519);
+    background-color: var(--color-navbar-active-underline);
     border-radius: 2px;
     pointer-events: none;
 }
 
 .navbar-nav .nav-link:not(.active){
-    color: rgb(60, 148, 100);
+    color: var(--color-navbar-link);
 }
+
+/* #region Responsive */
+@media (max-width: 991px) {
+    .navbar-nav {
+        background-color: var(--color-navbar-mobile-background);
+        border-radius: 4px;
+        margin-top: 1rem;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        padding-left: .85rem;
+    }
+
+    .navbar-nav .nav-item:hover {
+        background-color: var(--color-navbar-mobile-item-hover);
+    }
+}
+/* #endregion */

@@ -1,0 +1,31 @@
+:root {
+    --color-primary: rgb(33, 134, 65);
+    --color-primary-hover: rgb(49, 179, 90);
+    --color-primary-shadow: rgba(0, 110, 35, 0.15);
+    --color-primary-input-icon: #57866c;
+    --color-primary-navbar-icon: rgb(59, 129, 81);
+    --color-primary-background: rgb(245, 245, 245);
+    --color-primary-form-background: rgb(255, 255, 255);
+    --color-primary-form-shadow: rgba(0, 110, 35, 0.05);
+
+    --color-input-placeholder: rgb(169, 169, 169);
+    --color-input-focus-border: rgb(33, 134, 65);
+    --color-input-focus-shadow: rgba(33, 134, 65, 0.2);
+    --color-input-error-border: rgb(185, 5, 5);
+
+    --color-navbar-title: #50544e;
+    --color-navbar-link: rgb(33, 134, 65);
+    --color-navbar-link-hover: rgb(49, 179, 90);
+    --color-navbar-link-hover-text: rgb(49, 179, 90);
+    --color-navbar-icon-button-hover: rgb(49, 179, 90);
+    --color-navbar-active-underline: rgb(49, 179, 90);
+    --color-navbar-background: rgb(33, 134, 65);
+    --color-navbar-mobile-background: rgb(33, 134, 65);
+    --color-navbar-mobile-item-hover: rgb(49, 179, 90);
+
+    --color-sidebar-background: rgb(189, 235, 203);
+
+    --color-danger: rgb(185, 5, 5);
+    --color-danger-hover: red;
+    --color-danger-text-shadow: rgba(156, 0, 0, 0.41);
+}

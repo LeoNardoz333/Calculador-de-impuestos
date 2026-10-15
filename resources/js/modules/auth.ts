@@ -1,4 +1,4 @@
-import { hideAlert, togglePasswordVisibility } from '../../utils';
+import { hideAlert, togglePasswordVisibility } from '../utils';
 
 document.addEventListener("DOMContentLoaded", () => {
 

@@ -17,7 +17,7 @@
     <div class="d-flex flex-column min-vh-100">
 
         <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-                <div class="@yield('container-class', 'white-box-login')">
+                <div class="@yield('container-class', 'app-form-container form-login-container')">
                     <x-alert />
                     
                     <div class="mb-2">

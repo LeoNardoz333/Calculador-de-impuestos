@@ -1,11 +1,11 @@
 @props([
     'type' => 'button',
     'useIcon' => true,
-    'iconClass' => 'bi bi-arrow-right-short absolute-button-icon end-0',
+    'iconClass' => 'bi bi-arrow-right-short absolute-input-icon end-0',
 ])
 
 <button type="{{ $type }}" {{ $attributes->class([
-    'btn', 'btn-primary-color', 'w-md-auto', 'position-relative' => $useIcon,
+    'btn', 'primary-button', 'w-md-auto', 'position-relative' => $useIcon,
 ]) }}>
 
     <span>{{ $slot }}</span>

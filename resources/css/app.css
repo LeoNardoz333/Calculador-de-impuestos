@@ -1,8 +1,10 @@
-@import "./elements/divs.css";
 @import "./elements/buttons.css";
-@import "./elements/fonts.css";
+@import "./elements/containers.css";
 @import "./elements/icons.css";
-@import "./elements/texts.css";
-@import "./elements/navbars.css";
 @import "./elements/inputs.css";
+@import "./elements/lists.css";
+@import "./elements/navbars.css";
+@import "./elements/sidebars.css";
+@import "./elements/texts.css";
+
 @import 'bootstrap/dist/css/bootstrap.min.css';

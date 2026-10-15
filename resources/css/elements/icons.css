@@ -1,53 +1,52 @@
-/* - - - - - - - - - - - - - - - - - - - - - - - - - Password - - - - - - - - - - - - - - - - - - - - - - - - */
-.ojo{
-    outline: none !important;
-    box-shadow: none !important;
-    cursor: pointer;
+.absolute-input-icon {
     position: absolute;
-    right: 10px !important;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    border: none !important;
-    background: none !important;
-    display: inline;
-    line-height: 1 !important;
+}
+
+.icon-button {
+    border: none;
+    background: none;
     box-shadow: none;
+    outline: none;
     padding: 0;
 }
 
-.ojo-login-color{
-    color: #548268;
+.icon-button:focus,
+.icon-button:active,
+.icon-button:hover {
+    border: none;
+    background: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.icon-button:focus-visible {
+    outline: 1px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.app-password-icon {
+    color: var(--color-primary-input-icon);
     font-size: 26px;
+    line-height: 1;
 }
 
-.ojo:focus, .ojo:active, .ojo:focus-visible, .ojo:hover {
-    outline: none !important;
-    box-shadow: none !important;
-    background: none !important;
-    border: none !important;
+.navbar-user-icon {
+    font-size: 33px;
+    line-height: 1;
+    color: var(--color-primary-navbar-icon);
 }
 
-.ojo img {
-    pointer-events: none;
-    user-select: none;
+.navbar-icon-button {
+    padding: 4px 5px;
+    border-radius: 37%; 
+    cursor: pointer;
+    max-height: 42px;
+    transition: background-color 0.2s ease-in-out;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - Navbar user - - - - - - - - - - - - - - - - - - - - - - - - */
-.navbar-user {
-    font-size: 33px !important;
-    line-height: 1 !important;
-    color: #19633c;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - Login big user icon - - - - - - - - - - - - - - - - - - - - */
-.login-big-user-icon {
-    font-size: 130px !important;
-    color: #3cce9b;
-    line-height: 1 !important;
-}
-
-.regresar i {
-    font-size: 23px;
-    margin-top: .1rem;
-    margin-right: .01rem;
+.navbar-icon-button:hover {
+    background-color: var(--color-navbar-icon-button-hover);
 }

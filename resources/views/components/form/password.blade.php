@@ -23,7 +23,7 @@
                 placeholder="{{ $placeholder }}"
                 {{ $attributes->class(['form-control', 'app-form-input', 'is-invalid' => $errors->has($name)]) }}>
 
-            <button class="{{ $buttonClass }}" type="button" id="{{ $name }}Toggle"
+            <button class="{{ $buttonClass }} icon-button" type="button" id="{{ $name }}Toggle"
                 aria-label="{{ $buttonLabel }}">
                 <i class="{{ $iconClass }} app-password-icon" id="{{ $name }}ToggleIcon"></i>
             </button>

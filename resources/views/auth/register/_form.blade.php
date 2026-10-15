@@ -3,12 +3,12 @@
         <div class="img-gradient"></div>
     </div>
 
-    <div class="div-form-sign-up">
+    <div class="form-sign-up-container">
         <div class="row mb-2">
             <div class="col-12 mb-2">
                 <div class="d-flex flex-column pt-0">
-                    <h1 class="bold-title-form">Crea tu cuenta nueva</h1>
-                    <p class="subtitle-form mt-2">Completa los datos para comenzar</p>
+                    <h1 class="fw-bold">Crea tu cuenta nueva</h1>
+                    <p class="mt-2">Completa los datos para comenzar</p>
                 </div>
             </div>
         </div>
@@ -41,9 +41,9 @@
 
             <div class="row mt-4 d-flex justify-content-between align-items-center flex-column flex-md-row">
                 <div class="col-12 col-md-auto mb-2 mb-md-0 text-center">
-                    <x-form.back-button :href="{{ route('auth.login') }}">
+                    <x-form.go-back-button :href="{{ route('auth.login') }}">
                         Regresar
-                    </x-form.back-button>
+                    </x-form.go-back-button>
                 </div>
 
                 <div class="col-12 col-md-auto text-center">

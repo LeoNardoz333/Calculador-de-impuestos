@@ -1,0 +1,89 @@
+.auth-page {
+    --color-primary-background: rgb(231, 247, 239);
+}
+/* #region classes*/
+/* Login */
+.bg-auth {
+    background-color: var(--color-primary-background);
+}
+
+
+.form-login-container {
+    background-color: var(--color-primary-form-background) !important;
+    border-radius: 10px;
+    box-shadow: 6px 6px 2px var(--color-primary-box-shadow);
+    padding: 2.7rem 2.2rem .8rem 2.2rem;
+}
+
+.login-big-user-icon {
+    font-size: 130px !important;
+    color: var(--color-primary);
+    line-height: 1 !important;
+}
+
+/* Sign-up */
+.img-gradient {
+    position: relative;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)),
+    url('/images/auth/signup-background.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /*background-image: linear-gradient(to right, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));*/
+    background-color: rgba(255, 255, 255, 0.55);
+    z-index: 1;
+}
+
+.form-sign-up-container {
+    padding-left: 1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+}
+/* #endregion */
+
+/* #region Responsive */
+/* Login */
+@media (max-width: 600px) {
+    .form-login-container {
+        width: 75%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 849px) {
+    .form-login-container {
+        width: 50%;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1199px) {
+    .form-login-container {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-login-container {
+        width: 30%;
+    }
+}
+
+/* Sign-up */
+@media (max-width: 850px) {
+    .form-sign-up-container {
+        padding-left: 2.93rem;
+        padding-top: 3rem;
+        padding-bottom: 1.5rem;
+    }
+}
+/* #endregion */
